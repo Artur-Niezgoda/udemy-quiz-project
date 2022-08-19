@@ -17,10 +17,9 @@ class QuizBrain:
 
     Attributes:
         question_number (int): enumerates the current question
-         question_list (list): list of dictionaries holding question text (key) 
+        question_list (list): list of dictionaries holding question text (key) 
                                and the correct answer (value)
-                  score (int): score standing for the number of correctly 
-                               answered questions
+        score (int): score standing for the number of correctly answered questions
     """
 
     def __init__(self, q_list):
