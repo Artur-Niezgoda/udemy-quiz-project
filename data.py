@@ -847,8 +847,8 @@ question_data = {
                 {
                     "question": "Which major extinction event was caused by an asteroid collision and eliminated the majority of non-avian dinosaurs?",
                     "correct_answer": "Cretaceous-Paleogene",
-                    "incorrect_answers": ["Triassic&ndash;Jurassic", "Permian&ndash;Triassic",
-                                          "Ordovician&ndash;Silurian"]},
+                    "incorrect_answers": ["Triassic-Jurassic", "Permian-Triassic",
+                                          "Ordovician-Silurian"]},
                 {
                     "question": "What is the name for the auditory illusion of a note that seems to be rising infinitely?",
                     "correct_answer": "Shepard Tone",
