@@ -1,3 +1,8 @@
+"""Module containing questions for the quiz in form of list of dictionaries.
+First keys for category, then key for difficulity and the mosted dictionary contains
+question, correct_answer and list of incorrect_answers.
+"""
+
 question_data = {
     "general knowledge":
         {"easy":
