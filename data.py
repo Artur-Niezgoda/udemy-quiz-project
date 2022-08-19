@@ -1,3 +1,6 @@
+"""Module containing questions for the quiz in form of list of dictionaries
+"""
+
 question_data = [
     {"text": "A slug's blood is green.", "answer": "True"},
     {"text": "The loudest animal is the African Elephant.", "answer": "False"},
