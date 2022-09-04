@@ -6,67 +6,67 @@ Classes:
 
 Methods:
 
-    still_has_questions(object) -> Boolean
-    next_question(object)
-    check_answer(object, string, string)
+    still_has_questions() -> Boolean
+        Check if there are still questions left
+    next_question() -> String
+        Take next Question object
+    check_answer(string) -> Boolean
+        Check user's answer
 """
+from html import unescape
 
 
 class QuizBrain:
-    """This is a Class for displaying questions and checking the answers for Quiz Brain program. 
+    """This is a Class for displaying questions and checking the answers for Quiz Brain program.
 
     Attributes:
         question_number (int): enumerates the current question
-        question_list (list): list of dictionaries holding question text (key) 
+        question_list (list): list of dictionaries holding question text (key)
                                and the correct answer (value)
         score (int): score standing for the number of correctly answered questions
+        current_question (object): object of Question class, containing question '.text' and '.answer' as its attributes
     """
 
-    def __init__(self, q_list):
+    def __init__(self, q_list: list):
         """The constructor for the QuizBrain class.
 
-        Args:
-            q_list (list): list of dictionaries holding question text (key) 
-                               and the correct answer (value)
+        :param q_list: list of Question class objects
         """
 
         self.question_number = 0
         self.question_list = q_list
         self.score = 0
+        self.current_question = None
 
-    def still_has_questions(self):
-        """Function checking if there are still questions left
+    def still_has_questions(self) -> bool:
+        """Check if there are still questions left
 
-        Returns:
-            Boolean: returns True if number of question is lower than the length 
-                     of the question, False otherwise.
+        :return: returns True if number of the current question is lower than the length
+                     of the question _list, False otherwise.
         """
 
         return self.question_number < len(self.question_list)
 
-    def next_question(self):
-        """Function that asks the user next question. Controls the number of 
-        the question, asks for answer and sends the input, together with 
-        the correct answer to the check_answer function.
+    def next_question(self) -> str:
+        """Take next Question object and return its text attribute as a string
+
+        :return: text of the question with the number of the current question
         """
 
-        current_question = self.question_list[self.question_number]
+        self.current_question = self.question_list[self.question_number]
         self.question_number += 1
-        user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False): ")
-        self.check_answer(user_answer, current_question.answer)
+        return f"Q.{self.question_number}: {unescape(self.current_question.text)}"
 
-    def check_answer(self, user_answer, correct_answer):
-        """Function that checks if user's answer is correct by comparing it to the correct answer.
-
-        Args:
-            user_answer (string): String containing users answer
-            correct_answer (string): String containing correct answer
+    def check_answer(self, user_answer: str) -> bool:
         """
+        Check if user's answer is correct by comparing it to the correct answer.
 
+        :param user_answer: String containing user's answer
+        :return: True if the answer is correct, False otherwise
+        """
+        correct_answer = self.current_question.answer
         if user_answer.lower() == correct_answer.lower():
-            print("You are right!")
             self.score += 1
+            return True
         else:
-            print("That is wrong.")
-        print(f"The correct answer was {correct_answer}.")
-        print(f"Your current score is: {self.score}/{self.question_number} \n")
+            return False

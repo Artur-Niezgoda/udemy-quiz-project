@@ -5,6 +5,7 @@ Classes:
     Question
 """
 
+
 class Question:
     """This is a class for creating a question for quiz.
 
@@ -13,12 +14,11 @@ class Question:
         answer (string): The string containing the answer
     """
 
-    def __init__(self, q_text, q_answer):
+    def __init__(self, q_text: str, q_answer: str):
         """The constructor for Question class.
 
-        Args:
-            q_text (string): The string containing the question
-            q_answer (string): The string containing the answer
+        :param q_text: The string containing the question
+        :param q_answer: The string containing the answer
         """
         self.text = q_text
         self.answer = q_answer
